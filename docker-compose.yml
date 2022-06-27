@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+  mongo_db:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_DATABASE: chess_db
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+    ports:
+      - 27017:27017
+    volumes:
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
